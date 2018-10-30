@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nelioalves.cursomc.domain.Categoria;
-import com.nelioalves.cursomc.service.CategoriaService;
+import com.nelioalves.cursomc.services.CategoriaService;
+
 
 @RestController
 @RequestMapping(value="/categorias")
@@ -19,7 +20,7 @@ public class CategoriaResource {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = service.buscar(id);
+		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 		
 	}
